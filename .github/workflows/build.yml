@@ -26,6 +26,15 @@ jobs:
     - name: Install Dependencies
       run: flutter pub get
 
+    - name: Verify Android Structure
+      run: |
+        mkdir -p android/app/src/main/java/com/siddhant/rakshakavach
+        if [ ! -f android/app/src/main/java/com/siddhant/rakshakavach/MainActivity.kt ]; then
+          echo "package com.siddhant.rakshakavach;" > android/app/src/main/java/com/siddhant/rakshakavach/MainActivity.kt
+          echo "import io.flutter.embedding.android.FlutterActivity;" >> android/app/src/main/java/com/siddhant/rakshakavach/MainActivity.kt
+          echo "class MainActivity: FlutterActivity() {}" >> android/app/src/main/java/com/siddhant/rakshakavach/MainActivity.kt
+        fi
+
     - name: Build Release APK
       run: flutter build apk --release
 
