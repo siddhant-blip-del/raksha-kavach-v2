@@ -26,9 +26,6 @@ jobs:
     - name: Install Dependencies
       run: flutter pub get
 
-    - name: Generate Android files safely
-      run: flutter create . --platforms=android --org com.siddhant.rakshakavach --project-name raksha_kavach_v2
-
     - name: Build Release APK
       run: flutter build apk --release
 
