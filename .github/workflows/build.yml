@@ -20,15 +20,7 @@ jobs:
     - name: Set up Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.19.x'
-        channel: 'stable'
-
-    - name: Force v2 Embedding Configuration
-      run: |
-        mkdir -p android/app/src/main/java/com/siddhant/rakshakavach
-        echo "package com.siddhant.rakshakavach;" > android/app/src/main/java/com/siddhant/rakshakavach/MainActivity.kt
-        echo "import io.flutter.embedding.android.FlutterActivity;" >> android/app/src/main/java/com/siddhant/rakshakavach/MainActivity.kt
-        echo "class MainActivity: FlutterActivity() {}" >> android/app/src/main/java/com/siddhant/rakshakavach/MainActivity.kt
+        channel: 'stable' # Yeh automatically latest Flutter aur Dart 3.6+ download karega
 
     - name: Install Dependencies
       run: flutter pub get
