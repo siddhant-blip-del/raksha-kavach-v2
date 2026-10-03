@@ -24,19 +24,19 @@ jobs:
         channel: 'stable'
 
     - name: Install Dependencies
-      run: flutter pub get
+      run: flutter pub get --no-example
 
-    - name: Verify Android Structure
+    - name: Ensure Android V2 Embedding
       run: |
         mkdir -p android/app/src/main/java/com/siddhant/rakshakavach
-        if [ ! -f android/app/src/main/java/com/siddhant/rakshakavach/MainActivity.kt ]; then
-          echo "package com.siddhant.rakshakavach;" > android/app/src/main/java/com/siddhant/rakshakavach/MainActivity.kt
-          echo "import io.flutter.embedding.android.FlutterActivity;" >> android/app/src/main/java/com/siddhant/rakshakavach/MainActivity.kt
-          echo "class MainActivity: FlutterActivity() {}" >> android/app/src/main/java/com/siddhant/rakshakavach/MainActivity.kt
-        fi
+        cat << 'EOF' > android/app/src/main/java/com/siddhant/rakshakavach/MainActivity.kt
+        package com.siddhant.rakshakavach
+        import io.flutter.embedding.android.FlutterActivity
+        class MainActivity: FlutterActivity() {}
+        EOF
 
     - name: Build Release APK
-      run: flutter build apk --release
+      run: flutter build apk --release --no-pub
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
