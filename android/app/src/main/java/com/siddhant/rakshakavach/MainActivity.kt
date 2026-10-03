@@ -1,6 +1,9 @@
-package com.siddhant.rakshakavach
+android {
+    namespace = "com.siddhant.rakshakavach"
+    compileSdk = 34 // ya jo bhi ho
 
-import io.flutter.embedding.android.FlutterActivity
-
-class MainActivity: FlutterActivity() {
+    defaultConfig {
+        applicationId = "com.siddhant.rakshakavach"
+        // ...
+    }
 }
