@@ -1,20 +1,24 @@
 name: raksha_kavach_v2
-description: "An advanced native anti-blackmail and safety application for Android."
+description: Raksha Kavach V2 safety application.
 publish_to: 'none'
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: '>=3.1.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.6
-  geolocator: ^10.1.1
-  shared_preferences: ^2.2.1
-  url_launcher: ^6.2.2
-  permission_handler: ^11.1.0
+
+  # The main fix for the v2 embedding error
+  geolocator: ^14.1.1  
+  
+  # Other dependencies seen in your logs
+  permission_handler: ^13.0.2
+  shared_preferences: ^2.5.5
+  url_launcher: ^6.3.2
+  cupertino_icons: ^1.0.8
 
 dev_dependencies:
   flutter_test:
