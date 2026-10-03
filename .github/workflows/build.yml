@@ -24,9 +24,9 @@ jobs:
         channel: 'stable'
 
     - name: Install Dependencies
-      run: flutter pub get --no-pubspec-overrides
+      run: flutter pub get
 
-    - name: Force Android v2 Embedding Setup
+    - name: Ensure Android v2 Embedding
       run: |
         mkdir -p android/app/src/main/java/com/siddhant/rakshakavach
         cat << 'EOF' > android/app/src/main/java/com/siddhant/rakshakavach/MainActivity.kt
@@ -36,7 +36,7 @@ jobs:
         EOF
 
     - name: Build Release APK
-      run: flutter build apk --release --no-pub
+      run: flutter build apk --release
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
